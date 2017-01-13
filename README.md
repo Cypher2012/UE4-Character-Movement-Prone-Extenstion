@@ -9,4 +9,4 @@ Use the 'StandUp' and 'Prone' functions exactly how you would the standard 'Crou
 
 No need to call 'UnCrouch' when using either 'StandUp' or 'Prone'.
 
-Use the StartTransition/EndTransition functions to stop the character moving while in an animation. The recommended usage is to have animation notify events call these functions.
+Use the StartTransition/EndTransition functions to stop the character moving while in an animation. The recommended usage is to have animation notify events call these two functions.
