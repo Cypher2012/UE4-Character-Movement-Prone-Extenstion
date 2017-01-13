@@ -9,11 +9,11 @@ class HDREMAKE_V4_API UExtendedCharacterMovement : public UCharacterMovementComp
 	GENERATED_BODY()
 private:
 
-	bool bIsTransitioning = false;
+	uint32 bIsTransitioning : 1;
 
-	bool bIsProne = false;
-	bool bIsCrouched = false;	
-	bool bIsStanding = true;
+	uint32 bIsProne : 1;
+	uint32 bIsCrouched : 1;	
+	uint32 bIsStanding : 1;
 
 	virtual float GetMaxSpeed() const override;
 
@@ -29,6 +29,7 @@ private:
 	void AdjustCapsule(INPUT_STANCE eInputStance);
 
 public:
+	UExtendedCharacterMovement();
 	
 	UPROPERTY(Category = "Character Movement: Walking", EditAnywhere, BlueprintReadWrite, meta = (ClampMin = "0", UIMin = "0"))
 	float MaxProneSpeed;
@@ -62,13 +63,13 @@ public:
 
 	//Return bIsStanding
 	UFUNCTION(BlueprintCallable, category = "Custom movement")
-	bool IsStanding() { return bIsStanding; }
+	bool IsStanding() const { return bIsStanding; }
 
 	//Return bIsCrouched
 	UFUNCTION(BlueprintCallable, category = "Custom movement")
-	bool IsCrouched() { return bIsCrouched; }
+	bool IsCrouched() const { return bIsCrouched; }
 
 	//Return bIsProne
 	UFUNCTION(BlueprintCallable, category = "Custom movement")
-	bool IsProne() { return bIsProne; }
+	bool IsProne() const { return bIsProne; }
 };

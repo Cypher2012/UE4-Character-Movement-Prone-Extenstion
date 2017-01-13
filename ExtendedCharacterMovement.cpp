@@ -3,6 +3,15 @@
 #include "HDRemake_V4.h"
 #include "ExtendedCharacterMovement.h"
 
+UExtendedCharacterMovement::UExtendedCharacterMovement()
+{
+	bIsTransitioning = false;
+
+	bIsProne = false;
+	bIsCrouched = false;
+	bIsStanding = true;
+}
+
 float UExtendedCharacterMovement::GetMaxSpeed() const
 {
 	switch (MovementMode)
@@ -115,4 +124,3 @@ void UExtendedCharacterMovement::EndTransition()
 {
 	bIsTransitioning = false;
 }
-
