@@ -40,37 +40,70 @@ float UExtendedCharacterMovement::GetMaxSpeed() const
 	}
 }
 
+void UExtendedCharacterMovement::AdjustCapsule(INPUT_STANCE eInputStance)
+{
+	//TODO: Adjust the capsule size to fit the stance
+
+	if (eInputStance == INPUT_STANCE::IP_STAND)
+	{
+
+	}
+
+	else if (eInputStance == INPUT_STANCE::IP_CROUCH)
+	{
+
+	}
+	else if (eInputStance == INPUT_STANCE::IP_PRONE)
+	{
+
+	}
+}
+
+bool UExtendedCharacterMovement::CheckRequestStance(INPUT_STANCE eInputStance)
+{
+	//TODO: Check if the requested stance is okay. Check for collisions etc.
+
+	//Return true for now, so that the function can be placed where needed.
+	return true;
+}
+
 void UExtendedCharacterMovement::StandUp(bool bClientSimulation)
 {
-	bIsStanding = true;
+	if (CheckRequestStance(INPUT_STANCE::IP_STAND))
+	{
+		bIsStanding = true;
 
-	bIsCrouched = false;
-	bIsProne = false;
+		bIsCrouched = false;
+		bIsProne = false;
 
-	//TODO: Check is okay to stand up
-	//TODO: Create function to adjust capsule that can be called by Crouch/Prone/Standup
+		AdjustCapsule(INPUT_STANCE::IP_STAND);
+	}	
 }
 
 void UExtendedCharacterMovement::Crouch(bool bClientSimulation)
 {
-	bIsCrouched = true;
+	if (CheckRequestStance(INPUT_STANCE::IP_CROUCH))
+	{
+		bIsCrouched = true;
 
-	bIsStanding = false;	
-	bIsProne = false;
+		bIsStanding = false;
+		bIsProne = false;
 
-	//TODO: Check is okay to crouch
-	//TODO: Create function to adjust capsule that can be called by Crouch/Prone/Standup
+		AdjustCapsule(INPUT_STANCE::IP_CROUCH);
+	}	
 }
 
 void UExtendedCharacterMovement::Prone(bool bClientSimulation)
 {
-	bIsProne = true;
+	if (CheckRequestStance(INPUT_STANCE::IP_PRONE))
+	{
+		bIsProne = true;
 
-	bIsStanding = false;
-	bIsCrouched = false;
+		bIsStanding = false;
+		bIsCrouched = false;
 
-	//TODO: Check is okay to go prone
-	//TODO: Create function to adjust capsule that can be called by Crouch/Prone/Standup
+		AdjustCapsule(INPUT_STANCE::IP_PRONE);
+	}	
 }
 
 void UExtendedCharacterMovement::StartTransition()

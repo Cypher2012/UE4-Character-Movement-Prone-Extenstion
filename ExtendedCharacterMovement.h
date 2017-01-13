@@ -17,6 +17,17 @@ private:
 
 	virtual float GetMaxSpeed() const override;
 
+	enum INPUT_STANCE
+	{
+		IP_PRONE, IP_CROUCH, IP_STAND
+	};
+
+	//TODO: Check the requested stance is valid and okay
+	bool CheckRequestStance(INPUT_STANCE eInputStance);
+
+	//TODO: Adjust collision capsule to fit character
+	void AdjustCapsule(INPUT_STANCE eInputStance);
+
 public:
 	
 	UPROPERTY(Category = "Character Movement: Walking", EditAnywhere, BlueprintReadWrite, meta = (ClampMin = "0", UIMin = "0"))
