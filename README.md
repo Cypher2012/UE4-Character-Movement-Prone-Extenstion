@@ -1,6 +1,8 @@
 # UE4-Character-Movement-Prone-Extenstion
 An extension of the UCharacterMovementComponent which enables support for prone movement and transition pauses.
 
+WARNING: This is a work in progress!
+
 Use the 'StandUp' and 'Prone' functions exactly how you would the prone function.
 
 No need to call 'UnCrouch' when using either 'StandUp' or 'Prone'.
