@@ -3,7 +3,7 @@ An extension of the UCharacterMovementComponent which enables support for prone 
 
 WARNING: This is a work in progress!
 
-Use the 'StandUp' and 'Prone' functions exactly how you would the prone function.
+Use the 'StandUp' and 'Prone' functions exactly how you would the standard 'Crouch' function.
 
 No need to call 'UnCrouch' when using either 'StandUp' or 'Prone'.
 
